@@ -64,24 +64,71 @@ section {
   margin: auto;
 }
 
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  padding: 1rem 0;
+}
+
 .carousel {
   display: flex;
   overflow-x: auto;
-  gap: 1rem;
-  padding-bottom: 1rem;
+  scroll-behavior: smooth;
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none; /* Hides scrollbar */
 }
 
 .project-card {
-  min-width: 250px;
-  background: #1f1f1f;
-  padding: 1rem;
-  border-radius: 8px;
+  min-width: 300px;
+  flex: 0 0 auto;
+  background: #1c1c1c;
+  border-radius: 12px;
+  padding: 20px;
+  color: white;
+  box-shadow: 0 0 15px rgba(229, 9, 20, 0.2);
   transition: transform 0.3s ease;
 }
+
 .project-card:hover {
   transform: scale(1.05);
-  background: #2c2c2c;
 }
+
+.project-card h3 {
+  color: #e50914;
+}
+
+.project-card ul {
+  margin: 10px 0;
+  padding-left: 1.2rem;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(229, 9, 20, 0.8);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 8px;
+}
+
+.carousel-btn.left {
+  left: 10px;
+}
+
+.carousel-btn.right {
+  right: 10px;
+}
+
+
 
 .skills-grid {
   display: flex;
@@ -156,27 +203,28 @@ footer {
 .hero {
   position: relative;
   height: 100vh;
+  background: url('assets/coding-bg.jpg') no-repeat center center/cover;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
-  background: url('assets/code-bg.jpg') center center / cover no-repeat;
+  color: white;
   text-align: center;
   overflow: hidden;
 }
 
 .overlay {
   position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.6); /* Dark overlay for readability */
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Dark transparent overlay */
   z-index: 1;
 }
 
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: 700px;
-  padding: 2rem;
 }
 
 .hero-content h2 {
@@ -185,9 +233,10 @@ footer {
 }
 
 .hero-content p {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   margin-bottom: 2rem;
 }
+
 
 .btn {
   background: #e50914;
